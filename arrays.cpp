@@ -8,6 +8,7 @@ Extra: None
 #include <iostream>
 #include <ctime>
 using namespace std;
+float findAverage(float total, int numOfNums);
 int main() {
     srand(time(nullptr));
     // Question 1:
@@ -60,7 +61,11 @@ int main() {
     for (int i = 0; i < (sizeof(finalGrade) / sizeof(float)); i++) {
         avg += finalGrade[i];
     }
-    // rounds average to 1 decimal place (tenth)
-    printf("The final grade average is %.1f.", avg / (sizeof(finalGrade) / sizeof(float)));
+    cout << findAverage(avg, ((sizeof(finalGrade)) / sizeof(int))) << endl;
     return 0;
+}
+float findAverage(float total, int numOfNums) {
+    float avg = total / numOfNums;
+    // rounds average to 1 decimal place (tenth)
+    return ((int) (avg * 10 + 0.5)) / 10.0;
 }
